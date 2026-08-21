@@ -1,0 +1,25 @@
+#!/bin/sh
+set -eu
+
+envsubst '${PORT}' < /etc/nginx/http.d/default.conf.template > /etc/nginx/http.d/default.conf
+
+mkdir -p storage/framework/cache storage/framework/sessions storage/framework/views storage/logs \
+    public/uploads/doctors public/uploads/blogs public/uploads/testimonials public/uploads/brochures
+chown -R www-data:www-data storage bootstrap/cache public/uploads
+
+php artisan migrate --force
+
+if [ -n "${ADMIN_EMAIL:-}" ] && [ -n "${ADMIN_PASSWORD:-}" ]; then
+    php artisan db:seed --class=AdminUserSeeder --force
+fi
+
+if [ "${RUN_SEEDER:-false}" = "true" ]; then
+    php artisan db:seed --force
+fi
+
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+
+php-fpm -D
+exec nginx -g 'daemon off;'
