@@ -32,8 +32,9 @@ COPY docker/nginx.conf.template /etc/nginx/http.d/default.conf.template
 COPY docker/start-container /usr/local/bin/start-container
 
 RUN chmod +x /usr/local/bin/start-container \
-    && mkdir -p public/uploads/doctors public/uploads/blogs public/uploads/testimonials public/uploads/brochures \
-    && chown -R www-data:www-data storage bootstrap/cache public/uploads
+    && mkdir -p database public/uploads/doctors public/uploads/blogs public/uploads/testimonials public/uploads/brochures \
+    && touch database/database.sqlite \
+    && chown -R www-data:www-data storage bootstrap/cache public/uploads database
 
 ENV PORT=10000
 EXPOSE 10000
