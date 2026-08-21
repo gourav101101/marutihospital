@@ -13,12 +13,8 @@ class AdminUserSeeder extends Seeder
      */
     public function run(): void
     {
-        $email = env('ADMIN_EMAIL', app()->environment('production') ? null : 'admin@avark.in');
-        $password = env('ADMIN_PASSWORD', app()->environment('production') ? null : 'admin123');
-
-        if (! $email || ! $password) {
-            throw new \LogicException('ADMIN_EMAIL and ADMIN_PASSWORD must be set when seeding an admin user in production.');
-        }
+        $email = env('ADMIN_EMAIL', 'admin@marutihospital.com');
+        $password = env('ADMIN_PASSWORD', 'admin123');
 
         User::updateOrCreate(
             ['email' => $email],

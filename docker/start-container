@@ -14,14 +14,7 @@ chmod -R 775 storage bootstrap/cache database
 chmod 664 database/database.sqlite
 
 php artisan migrate --force
-
-if [ -n "${ADMIN_EMAIL:-}" ] && [ -n "${ADMIN_PASSWORD:-}" ]; then
-    php artisan db:seed --class=AdminUserSeeder --force
-fi
-
-if [ "${RUN_SEEDER:-false}" = "true" ]; then
-    php artisan db:seed --force
-fi
+php artisan db:seed --force
 
 php artisan config:cache
 php artisan route:cache
