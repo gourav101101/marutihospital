@@ -1,11 +1,11 @@
 <header id="main-header" style="position: relative; z-index: 1000; background: white; height: var(--header-height); display: flex; align-items: center; border-bottom: 1px solid transparent; transition: var(--transition);">
   <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
     <!-- Logo -->
-    <a href="{{ route('home') }}" class="hospital-brand" aria-label="Maruti Multispeciality Hospital home">
-      <img src="{{ asset('images/maruti-hospital-icon.png') }}" alt="Maruti Multispeciality Hospital logo" class="hospital-brand__logo" width="78" height="78" />
+    <a href="{{ route('home') }}" class="hospital-brand" aria-label="Maruti Multi-Speciality Hospital home">
+      <img src="{{ asset('images/maruti-hospital-icon.png') }}" alt="Maruti Multi-Speciality Hospital logo" class="hospital-brand__logo" width="78" height="78" />
       <span class="hospital-brand__wordmark">
-        <strong>Maruti Multispeciality</strong>
-        <span>Hospital · Bhopal</span>
+        <strong class="brand-title">MARUTI</strong>
+        <span class="brand-subtitle">MULTI-SPECIALITY HOSPITAL</span>
       </span>
       <img src="{{ asset('images/nabh-logo.png') }}" alt="NABH Accredited" class="hospital-brand__nabh-logo" width="68" height="68" title="NABH Accredited - Patient Safety &amp; Quality of Care" />
     </a>

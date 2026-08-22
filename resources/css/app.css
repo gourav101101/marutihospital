@@ -717,26 +717,37 @@ textarea.form-input {
 }
 
 .hospital-brand__wordmark {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
-  line-height: 1.12;
+  line-height: 1;
 }
 
-.hospital-brand__wordmark strong {
-  max-width: 185px;
-  color: var(--primary-dark);
-  font-size: 16px;
-  font-weight: 850;
-  letter-spacing: -0.015em;
-}
-
-.hospital-brand__wordmark span {
-  margin-top: 5px;
-  color: #167f95;
-  font-size: 11px;
-  font-weight: 750;
-  letter-spacing: 0.08em;
+.hospital-brand__wordmark .brand-title {
+  color: #0A2E6E;
+  font-size: 26px;
+  font-weight: 950;
+  letter-spacing: 0.16em;
+  text-indent: 0.16em;
   text-transform: uppercase;
+  line-height: 0.95;
+  text-align: center;
+  width: 100%;
+  display: block;
+}
+
+.hospital-brand__wordmark .brand-subtitle {
+  margin-top: 3px;
+  color: #0A2E6E;
+  font-size: 9.5px;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  line-height: 1.1;
+  text-align: center;
+  width: 100%;
+  padding-bottom: 3px;
+  border-bottom: 2px solid #087A65;
 }
 
 .hospital-brand__nabh-logo {
@@ -1026,14 +1037,16 @@ textarea.form-input {
     flex-basis: 66px;
   }
 
-  .hospital-brand__wordmark strong {
-    max-width: 145px;
-    font-size: 13px;
+  .hospital-brand__wordmark .brand-title {
+    font-size: 19px;
+    letter-spacing: 0.14em;
+    text-indent: 0.14em;
   }
 
-  .hospital-brand__wordmark span {
-    font-size: 9px;
-    letter-spacing: 0.055em;
+  .hospital-brand__wordmark .brand-subtitle {
+    font-size: 8px;
+    letter-spacing: 0.03em;
+    padding-bottom: 2px;
   }
 
   .hospital-brand__nabh-logo {
