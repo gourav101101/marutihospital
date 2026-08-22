@@ -739,6 +739,15 @@ textarea.form-input {
   text-transform: uppercase;
 }
 
+.hospital-brand__nabh-logo {
+  width: 68px;
+  height: 68px;
+  flex: 0 0 68px;
+  object-fit: contain;
+  margin-left: 2px;
+  border-radius: 50%;
+}
+
 .footer-hospital-brand {
   display: inline-flex;
   align-items: center;
@@ -1025,6 +1034,19 @@ textarea.form-input {
   .hospital-brand__wordmark span {
     font-size: 9px;
     letter-spacing: 0.055em;
+  }
+
+  .hospital-brand__nabh-logo {
+    width: 52px;
+    height: 52px;
+    flex-basis: 52px;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .hospital-brand__nabh-logo {
+    display: none;
   }
 }
 

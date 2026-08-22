@@ -7,6 +7,7 @@
         <strong>Maruti Multispeciality</strong>
         <span>Hospital · Bhopal</span>
       </span>
+      <img src="{{ asset('images/nabh-logo.png') }}" alt="NABH Accredited" class="hospital-brand__nabh-logo" width="68" height="68" title="NABH Accredited - Patient Safety &amp; Quality of Care" />
     </a>
 
     <!-- Desktop Nav -->
