@@ -494,7 +494,7 @@
                 <polyline points="6 9 12 15 18 9" />
               </svg>
             </button>
-            <div class="accordion-content">You can request a health checkup through our appointment page, call us at {{ config('hospital.phone.display') }}, or visit the reception desk. Our team will confirm available packages and timings.</div>
+            <div class="accordion-content">You can request a health checkup through our appointment page, call us at {{ $siteSettings->phone_display }}, or visit the reception desk. Our team will confirm available packages and timings.</div>
           </div>
           <!-- FAQ 2 -->
           <div class="accordion-item" style="margin-bottom: 8px;">
@@ -514,7 +514,7 @@
                 <polyline points="6 9 12 15 18 9" />
               </svg>
             </button>
-            <div class="accordion-content">Insurance and scheme eligibility can vary by treatment and policy. Please call {{ config('hospital.phone.display') }} with your card or policy details so our team can confirm current support.</div>
+            <div class="accordion-content">Insurance and scheme eligibility can vary by treatment and policy. Please call {{ $siteSettings->phone_display }} with your card or policy details so our team can confirm current support.</div>
           </div>
           <!-- FAQ 4 -->
           <div class="accordion-item" style="margin-bottom: 8px;">
@@ -524,7 +524,7 @@
                 <polyline points="6 9 12 15 18 9" />
               </svg>
             </button>
-            <div class="accordion-content">Please call {{ config('hospital.phone.display') }} to ask about current ambulance availability, service area and estimated arrival time.</div>
+            <div class="accordion-content">Please call {{ $siteSettings->phone_display }} to ask about current ambulance availability, service area and estimated arrival time.</div>
           </div>
           <!-- FAQ 5 -->
           <div class="accordion-item" style="margin-bottom: 8px;">

@@ -4,7 +4,7 @@
     <div class="about-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center">
       <div class="about-image" style="position:relative">
         <img src="{{ asset('images/hospital-interior.png') }}" alt="Patient care area at Maruti Multispeciality Hospital" style="width:100%;border-radius:20px;box-shadow:var(--shadow-xl)" />
-        <a href="{{ config('hospital.outside_view_url') }}" target="_blank" rel="noopener noreferrer" style="position:absolute;bottom:18px;right:18px;padding:11px 16px;border-radius:999px;background:white;color:var(--primary);font-size:13px;font-weight:800;text-decoration:none;box-shadow:var(--shadow-md)">See outside ↗</a>
+        <a href="{{ $siteSettings->outside_view_url }}" target="_blank" rel="noopener noreferrer" style="position:absolute;bottom:18px;right:18px;padding:11px 16px;border-radius:999px;background:white;color:var(--primary);font-size:13px;font-weight:800;text-decoration:none;box-shadow:var(--shadow-md)">See outside ↗</a>
       </div>
       <div>
         <div class="section-badge">
@@ -16,18 +16,18 @@
         <p style="font-size:15px;color:var(--text-secondary);line-height:1.8;margin-bottom:32px;padding-left:16px;border-left:3px solid var(--secondary)"><strong style="color:var(--text)">Our focus:</strong> Clear guidance, respectful communication and patient-centred care throughout every visit.</p>
         <div style="display:flex;gap:16px;flex-wrap:wrap">
           <a href="#departments" class="btn btn-primary">Our Departments <span aria-hidden="true">→</span></a>
-          <a href="{{ config('hospital.directions_url') }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Get Directions</a>
+          <a href="{{ $siteSettings->directions_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Get Directions</a>
         </div>
       </div>
     </div>
     <div class="stats-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:80px">
-      <a href="{{ config('hospital.maps_url') }}" target="_blank" rel="noopener noreferrer" style="text-align:center;padding:32px 20px;background:var(--bg-light);border-radius:var(--radius-lg);border:1px solid var(--border-light);text-decoration:none;color:inherit">
-        <div style="font-size:28px;color:var(--accent);margin-bottom:8px">★</div><div style="font-size:36px;font-weight:800;color:var(--primary);line-height:1.1">{{ config('hospital.rating') }}/5</div><div style="font-size:14px;font-weight:500;color:var(--text-secondary);margin-top:4px">{{ config('hospital.review_count') }} Google reviews</div>
+      <a href="{{ $siteSettings->maps_url }}" target="_blank" rel="noopener noreferrer" style="text-align:center;padding:32px 20px;background:var(--bg-light);border-radius:var(--radius-lg);border:1px solid var(--border-light);text-decoration:none;color:inherit">
+        <div style="font-size:28px;color:var(--accent);margin-bottom:8px">★</div><div style="font-size:36px;font-weight:800;color:var(--primary);line-height:1.1">{{ $siteSettings->google_rating }}/5</div><div style="font-size:14px;font-weight:500;color:var(--text-secondary);margin-top:4px">{{ $siteSettings->google_review_count }} Google reviews</div>
       </a>
       <div style="text-align:center;padding:32px 20px;background:var(--bg-light);border-radius:var(--radius-lg);border:1px solid var(--border-light)">
         <div style="font-size:28px;color:var(--accent);margin-bottom:8px">◷</div><div style="font-size:30px;font-weight:800;color:var(--primary);line-height:1.1">Open 24 Hours</div><div style="font-size:14px;font-weight:500;color:var(--text-secondary);margin-top:4px">Every day</div>
       </div>
-      <a href="{{ config('hospital.directions_url') }}" target="_blank" rel="noopener noreferrer" style="text-align:center;padding:32px 20px;background:var(--bg-light);border-radius:var(--radius-lg);border:1px solid var(--border-light);text-decoration:none;color:inherit">
+      <a href="{{ $siteSettings->directions_url }}" target="_blank" rel="noopener noreferrer" style="text-align:center;padding:32px 20px;background:var(--bg-light);border-radius:var(--radius-lg);border:1px solid var(--border-light);text-decoration:none;color:inherit">
         <div style="font-size:28px;color:var(--accent);margin-bottom:8px">⌖</div><div style="font-size:30px;font-weight:800;color:var(--primary);line-height:1.1">Raisen Road</div><div style="font-size:14px;font-weight:500;color:var(--text-secondary);margin-top:4px">Get directions</div>
       </a>
     </div>

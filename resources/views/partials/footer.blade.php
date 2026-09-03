@@ -16,23 +16,28 @@
             </p>
             <div style="display: flex; gap: 12px;">
                 <!-- Facebook -->
-                <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; border: 1px solid rgba(255,255,255,0.1); transition: var(--transition);"
+                @if($siteSettings->facebook_url)
+                <a href="{{ $siteSettings->facebook_url }}" target="_blank" rel="noopener noreferrer" aria-label="Facebook" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; border: 1px solid rgba(255,255,255,0.1); transition: var(--transition);"
                 onmouseover="this.style.background='var(--primary)'; this.style.borderColor='var(--primary)'"
                 onmouseout="this.style.background='rgba(255,255,255,0.05)'; this.style.borderColor='rgba(255,255,255,0.1)'">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
                     </svg>
                 </a>
+                @endif
                 <!-- Twitter/X -->
-                <a href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; border: 1px solid rgba(255,255,255,0.1); transition: var(--transition);"
+                @if($siteSettings->twitter_url)
+                <a href="{{ $siteSettings->twitter_url }}" target="_blank" rel="noopener noreferrer" aria-label="X" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; border: 1px solid rgba(255,255,255,0.1); transition: var(--transition);"
                 onmouseover="this.style.background='var(--primary)'; this.style.borderColor='var(--primary)'"
                 onmouseout="this.style.background='rgba(255,255,255,0.05)'; this.style.borderColor='rgba(255,255,255,0.1)'">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
                     </svg>
                 </a>
+                @endif
                 <!-- Instagram -->
-                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; border: 1px solid rgba(255,255,255,0.1); transition: var(--transition);"
+                @if($siteSettings->instagram_url)
+                <a href="{{ $siteSettings->instagram_url }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; border: 1px solid rgba(255,255,255,0.1); transition: var(--transition);"
                 onmouseover="this.style.background='var(--primary)'; this.style.borderColor='var(--primary)'"
                 onmouseout="this.style.background='rgba(255,255,255,0.05)'; this.style.borderColor='rgba(255,255,255,0.1)'">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -41,8 +46,10 @@
                       <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
                     </svg>
                 </a>
+                @endif
                 <!-- YouTube -->
-                <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; border: 1px solid rgba(255,255,255,0.1); transition: var(--transition);"
+                @if($siteSettings->youtube_url)
+                <a href="{{ $siteSettings->youtube_url }}" target="_blank" rel="noopener noreferrer" aria-label="YouTube" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; border: 1px solid rgba(255,255,255,0.1); transition: var(--transition);"
                 onmouseover="this.style.background='var(--primary)'; this.style.borderColor='var(--primary)'"
                 onmouseout="this.style.background='rgba(255,255,255,0.05)'; this.style.borderColor='rgba(255,255,255,0.1)'">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -50,6 +57,7 @@
                       <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
                     </svg>
                 </a>
+                @endif
             </div>
         </div>
 
@@ -88,14 +96,14 @@
             </p>
             <a href="{{ route('appointment') }}" class="btn btn-primary" style="display: inline-flex; padding: 12px 16px; border-radius: 8px;">Book an Appointment</a>
             <a href="{{ route('contact') }}" style="display: block; width: fit-content; margin-top: 16px; color: var(--accent); font-size: 14px; font-weight: 600; text-decoration: none;">Contact patient care →</a>
-            <a href="tel:{{ config('hospital.phone.href') }}" style="display:block;width:fit-content;margin-top:12px;color:white;font-size:14px;font-weight:700;text-decoration:none">{{ config('hospital.phone.display') }}</a>
-            <a href="{{ config('hospital.directions_url') }}" target="_blank" rel="noopener noreferrer" style="display:block;width:fit-content;margin-top:10px;color:rgba(255,255,255,.72);font-size:13px;text-decoration:none">Get directions to Raisen Road →</a>
+            <a href="tel:{{ $siteSettings->phone_href }}" style="display:block;width:fit-content;margin-top:12px;color:white;font-size:14px;font-weight:700;text-decoration:none">{{ $siteSettings->phone_display }}</a>
+            <a href="{{ $siteSettings->directions_url }}" target="_blank" rel="noopener noreferrer" style="display:block;width:fit-content;margin-top:10px;color:rgba(255,255,255,.72);font-size:13px;text-decoration:none">Get directions to Raisen Road →</a>
         </div>
 
      </div>
 
      <div style="border-top: 1px solid rgba(255,255,255,0.1); padding: 24px 0; display: flex; justify-content: space-between; align-items: center; font-size: 13px;" class="footer-bottom">
-         <div>&copy; {{ date('Y') }} {{ config('hospital.name') }}. All rights reserved.</div>
+         <div>&copy; {{ date('Y') }} {{ $siteSettings->hospital_name }}. All rights reserved.</div>
          <div style="display: flex; gap: 16px;">
              <a href="{{ route('privacy') }}" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Privacy Policy</a>
              <a href="{{ route('terms') }}" style="color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='rgba(255,255,255,0.7)'">Terms of Service</a>

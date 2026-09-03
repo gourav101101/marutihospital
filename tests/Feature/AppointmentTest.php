@@ -72,14 +72,17 @@ class AppointmentTest extends TestCase
             'is_active' => true,
         ]);
 
-        $this->post(route('appointment.store'), [
+        $response = $this->post(route('appointment.store'), [
             'patient_name' => 'Test Patient',
             'phone' => '9876543210',
             'department' => 'Cardiology',
             'preferred_doctor' => 'Dr. Asha Rao',
             'preferred_date' => today()->addDay()->toDateString(),
             'time_slot' => 'morning-1',
-        ])->assertRedirect(route('appointment'));
+        ]);
+        
+        $this->assertTrue($response->isRedirect());
+        $this->assertStringContainsString('wa.me', $response->headers->get('Location'));
 
         $this->assertDatabaseHas('appointments', [
             'patient_name' => 'Test Patient',

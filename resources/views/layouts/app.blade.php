@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>@yield('title', 'Maruti Multispeciality Hospital | Bhopal')</title>
-    <meta name="description" content="@yield('meta_description', 'Maruti Multispeciality Hospital on Raisen Road, Bhopal, provides multispeciality hospital care and is open 24 hours.')">
-    <meta name="keywords" content="Maruti Multispeciality Hospital, Hospital in Bhopal, Raisen Road Hospital, Patel Nagar, Healthcare">
+    <title>@yield('title', $siteSettings->hospital_name . ' | Bhopal')</title>
+    <meta name="description" content="@yield('meta_description', $siteSettings->hospital_name . ' on Raisen Road, Bhopal, provides multispeciality hospital care and is open 24 hours.')">
+    <meta name="keywords" content="{{ $siteSettings->hospital_name }}, Hospital in Bhopal, Raisen Road Hospital, Patel Nagar, Healthcare">
     
-    <meta property="og:title" content="Maruti Multispeciality Hospital | Bhopal">
+    <meta property="og:title" content="{{ $siteSettings->hospital_name }} | Bhopal">
     <meta property="og:description" content="Multispeciality hospital care on Raisen Road, Bhopal. Open 24 hours.">
     <meta property="og:url" content="{{ url('/') }}">
-    <meta property="og:site_name" content="Maruti Hospital">
+    <meta property="og:site_name" content="{{ $siteSettings->hospital_name }}">
     <meta property="og:type" content="website">
     <meta property="og:image" content="{{ asset('images/maruti-hospital-logo.png') }}">
     <link rel="icon" type="image/png" sizes="256x256" href="{{ asset('images/maruti-hospital-icon.png') }}">
@@ -20,9 +20,9 @@
         {!! json_encode([
             '@context' => 'https://schema.org',
             '@type' => 'Hospital',
-            'name' => config('hospital.name'),
+            'name' => $siteSettings->hospital_name,
             'url' => url('/'),
-            'telephone' => config('hospital.phone.href'),
+            'telephone' => $siteSettings->phone_href,
             'address' => [
                 '@type' => 'PostalAddress',
                 'streetAddress' => 'Vardhmaan Colony, B-21, Raisen Rd, near Dada Ji Dham, Patel Nagar',
@@ -34,11 +34,11 @@
             'openingHours' => 'Mo-Su 00:00-23:59',
             'aggregateRating' => [
                 '@type' => 'AggregateRating',
-                'ratingValue' => config('hospital.rating'),
-                'reviewCount' => config('hospital.review_count'),
+                'ratingValue' => $siteSettings->google_rating,
+                'reviewCount' => $siteSettings->google_review_count,
                 'bestRating' => '5',
             ],
-            'sameAs' => [config('hospital.maps_url')],
+            'sameAs' => [$siteSettings->maps_url],
         ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
     </script>
 
@@ -73,7 +73,7 @@
     </button>
 
     {{-- WhatsApp Floating Button --}}
-    <a href="https://wa.me/{{ str_replace(['+', ' '], '', config('hospital.phone.href')) }}?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20Maruti%20Hospital%20services."
+    <a href="https://wa.me/{{ str_replace(['+', ' '], '', $siteSettings->phone_href) }}?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20Maruti%20Hospital%20services."
        target="_blank" rel="noopener noreferrer"
        id="whatsapp-float"
        aria-label="Chat on WhatsApp"
@@ -91,8 +91,8 @@
       #whatsapp-float { animation: whatsappPulse 2.5s infinite; }
       #whatsapp-float:hover { animation: none; }
       @media (max-width: 768px) {
-        #back-to-top { bottom: 130px !important; right: 16px !important; width: 42px !important; height: 42px !important; }
-        #whatsapp-float { bottom: 76px !important; right: 16px !important; width: 50px !important; height: 50px !important; }
+        #back-to-top { bottom: 156px !important; right: 16px !important; width: 42px !important; height: 42px !important; }
+        #whatsapp-float { bottom: 96px !important; right: 16px !important; width: 50px !important; height: 50px !important; }
       }
     </style>
     <script>

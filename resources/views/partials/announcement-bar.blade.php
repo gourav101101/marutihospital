@@ -1,3 +1,4 @@
+@if(isset($siteSettings) && $siteSettings->show_announcement && !empty($siteSettings->announcement_text))
 <div id="announcement-bar" style="background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; font-size: 13px; font-weight: 500; overflow: hidden; position: relative; z-index: 1000;">
   <div style="display: flex; align-items: center; height: 36px;">
     {{-- Label --}}
@@ -11,12 +12,7 @@
     {{-- Marquee --}}
     <div style="flex: 1; overflow: hidden; white-space: nowrap; mask-image: linear-gradient(90deg, transparent, black 3%, black 97%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, black 3%, black 97%, transparent);">
       <div class="announcement-marquee" style="display: inline-block; animation: marquee 35s linear infinite; padding-left: 100%;">
-        🏥 NABH Accredited Hospital &nbsp;&nbsp;•&nbsp;&nbsp;
-        📞 24/7 Emergency Services — Call {{ config('hospital.phone.display') }} &nbsp;&nbsp;•&nbsp;&nbsp;
-        🩺 Book Your Appointment Online &nbsp;&nbsp;•&nbsp;&nbsp;
-        💊 In-House Pharmacy Available &nbsp;&nbsp;•&nbsp;&nbsp;
-        🚑 Ambulance Service Available &nbsp;&nbsp;•&nbsp;&nbsp;
-        ⭐ Rated {{ config('hospital.rating') }}/5 on Google
+        {{ $siteSettings->announcement_text }}
       </div>
     </div>
 
@@ -36,5 +32,9 @@
     .announcement-marquee:hover {
       animation-play-state: paused;
     }
+    @media (max-width: 768px) {
+      #announcement-bar { display: none !important; }
+    }
   </style>
 </div>
+@endif

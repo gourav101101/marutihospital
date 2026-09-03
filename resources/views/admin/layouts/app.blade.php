@@ -262,7 +262,17 @@
           <svg viewBox="0 0 24 24"><path d="M22 16V4c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2zm-11-4l2.03 2.71L16 11l4 5H8l3-4zM2 6v14c0 1.1.9 2 2 2h14v-2H4V6H2z"/></svg>
           Gallery
         </a>
-        <a href="{{ route('admin.testimonials.index') }}" class="{{ request()->routeIs('admin.testimonials.*') ? 'active' : '' }}">Patient stories</a>
+        <a href="{{ route('admin.testimonials.index') }}" class="{{ request()->routeIs('admin.testimonials.*') ? 'active' : '' }}">
+          <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12zM7 9h10v2H7zm0-3h10v2H7zm0 6h7v2H7z"/></svg>
+          Patient stories
+        </a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-label">System</div>
+        <a href="{{ route('admin.settings') }}" class="{{ request()->routeIs('admin.settings*') ? 'active' : '' }}">
+          <svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.06-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.73 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.06.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .43-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.49-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+          Settings
+        </a>
       </div>
     </nav>
 
@@ -287,9 +297,70 @@
     </header>
 
     <div class="content">
+      @if ($errors->any())
+        <div style="background: #fef2f2; border: 1px solid #fecaca; color: #b91c1c; padding: 12px 16px; border-radius: 8px; margin-bottom: 18px; font-size: 13px;">
+          <ul style="margin: 0; padding-left: 20px;">
+            @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div>
+      @endif
       @yield('content')
     </div>
   </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    function attachSweetAlert(element, attr, callback) {
+      const str = element.getAttribute(attr);
+      if (str && str.includes('confirm(')) {
+        const match = str.match(/confirm\(['"](.*?)['"]\)/);
+        const msg = match ? match[1] : 'Are you sure you want to proceed?';
+        element.removeAttribute(attr);
+        
+        element.addEventListener(attr === 'onsubmit' ? 'submit' : 'click', function(e) {
+          e.preventDefault();
+          Swal.fire({
+            title: 'Are you sure?',
+            text: msg,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#b91c1c',
+            cancelButtonColor: '#667085',
+            confirmButtonText: 'Yes, proceed',
+            customClass: { popup: 'admin-swal-popup' }
+          }).then((result) => {
+            if (result.isConfirmed) callback();
+          });
+        });
+      }
+    }
+
+    // Handle form onsubmits
+    document.querySelectorAll('form').forEach(form => {
+      attachSweetAlert(form, 'onsubmit', () => form.submit());
+    });
+
+    // Handle button onclicks
+    document.querySelectorAll('button, a').forEach(el => {
+      attachSweetAlert(el, 'onclick', () => {
+        if (el.tagName === 'BUTTON') {
+          el.closest('form').submit();
+        } else if (el.tagName === 'A') {
+          window.location.href = el.href;
+        }
+      });
+    });
+  });
+</script>
+<style>
+  /* Optional tweak to match admin font */
+  .admin-swal-popup {
+    font-family: 'Inter', -apple-system, sans-serif !important;
+  }
+</style>
 </body>
 </html>

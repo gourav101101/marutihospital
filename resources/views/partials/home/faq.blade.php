@@ -46,7 +46,7 @@
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="faq-icon"><polyline points="6 9 12 15 18 9" /></svg>
         </button>
         <div class="faq-answer">
-          <p>You can book an appointment online through our <a href="{{ route('appointment') }}" style="color: var(--primary); font-weight: 600;">booking page</a>, by calling our helpline at {{ config('hospital.phone.display') }}, or by visiting the reception desk directly. Walk-in consultations are also available depending on doctor availability.</p>
+          <p>You can book an appointment online through our <a href="{{ route('appointment') }}" style="color: var(--primary); font-weight: 600;">booking page</a>, by calling our helpline at {{ $siteSettings->phone_display }}, or by visiting the reception desk directly. Walk-in consultations are also available depending on doctor availability.</p>
         </div>
       </div>
 

@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\AdminDepartmentController;
 use App\Http\Controllers\Admin\AdminDoctorController;
 use App\Http\Controllers\Admin\AdminOperationsController;
 use App\Http\Controllers\Admin\AdminTestimonialController;
+use App\Http\Controllers\Admin\AdminGalleryController;
+use App\Http\Controllers\Admin\AdminSettingController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
@@ -47,6 +49,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('blogs', AdminBlogController::class)->except(['show']);
         Route::resource('testimonials', AdminTestimonialController::class)->except(['show']);
         Route::resource('gallery', AdminGalleryController::class)->except(['show']);
+        Route::get('/settings', [AdminSettingController::class, 'edit'])->name('settings');
+        Route::put('/settings', [AdminSettingController::class, 'update'])->name('settings.update');
         Route::post('/logout', [AdminAuthController::class, 'logout'])->name('logout');
     });
 });

@@ -19,5 +19,14 @@ class AppServiceProvider extends ServiceProvider
         if ($this->app->environment('production') || env('APP_ENV') === 'production') {
             \Illuminate\Support\Facades\URL::forceScheme('https');
         }
+
+        try {
+            \Illuminate\Support\Facades\View::composer('*', function ($view) {
+                if (\Illuminate\Support\Facades\Schema::hasTable('site_settings')) {
+                    $siteSettings = \App\Models\SiteSetting::first() ?? new \App\Models\SiteSetting();
+                    $view->with('siteSettings', $siteSettings);
+                }
+            });
+        } catch (\Exception $e) {}
     }
 }

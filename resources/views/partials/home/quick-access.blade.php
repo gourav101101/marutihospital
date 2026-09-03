@@ -17,7 +17,7 @@
       </a>
 
       <!-- Call hospital -->
-      <a href="tel:{{ config('hospital.phone.href') }}" style="display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 24px 16px; background: white; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); text-decoration: none; transition: var(--transition); border: 1px solid var(--border-light); border-left: 3px solid var(--secondary); cursor: pointer;"
+      <a href="tel:{{ $siteSettings->phone_href }}" style="display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 24px 16px; background: white; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); text-decoration: none; transition: var(--transition); border: 1px solid var(--border-light); border-left: 3px solid var(--secondary); cursor: pointer;"
          onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='var(--shadow-xl)'; this.style.borderColor='var(--primary-200)';"
          onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-md)'; this.style.borderColor='var(--border-light)';">
         <div style="width: 52px; height: 52px; border-radius: 14px; background: rgba(11, 143, 116, 0.10); display: flex; align-items: center; justify-content: center; color: var(--secondary);">

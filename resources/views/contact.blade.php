@@ -35,7 +35,7 @@
             </svg>
           </div>
           <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">Call Us</h3>
-          <a href="tel:{{ config('hospital.phone.href') }}" style="font-size:15px;font-weight:700;color:var(--text);text-decoration:none">{{ config('hospital.phone.display') }}</a>
+          <a href="tel:{{ $siteSettings->phone_href }}" style="font-size:15px;font-weight:700;color:var(--text);text-decoration:none">{{ $siteSettings->phone_display }}</a>
           <div style="font-size:13px;color:var(--text-light);margin-top:4px">Tap to call the hospital</div>
         </div>
 
@@ -49,8 +49,8 @@
             </svg>
           </div>
           <h3 style="font-size:16px;font-weight:700;margin-bottom:8px">Google Reviews</h3>
-          <a href="{{ config('hospital.maps_url') }}" target="_blank" rel="noopener noreferrer" style="font-size:15px;font-weight:700;color:var(--text);text-decoration:none">{{ config('hospital.rating') }} ★ rating</a>
-          <div style="font-size:13px;color:var(--text-light);margin-top:4px">{{ config('hospital.review_count') }} reviews</div>
+          <a href="{{ $siteSettings->maps_url }}" target="_blank" rel="noopener noreferrer" style="font-size:15px;font-weight:700;color:var(--text);text-decoration:none">{{ $siteSettings->google_rating }} ★ rating</a>
+          <div style="font-size:13px;color:var(--text-light);margin-top:4px">{{ $siteSettings->google_review_count }} reviews</div>
         </div>
 
         <!-- Visit Us -->
@@ -63,8 +63,8 @@
             </svg>
           </div>
           <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">Visit Us</h3>
-          <div style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:4px">{{ config('hospital.address_lines.0') }}</div>
-          <div style="font-size:13px;color:var(--text-light)">{{ config('hospital.address_lines.1') }}</div>
+          <div style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:4px">{{ $siteSettings->address_line_1 }}</div>
+          <div style="font-size:13px;color:var(--text-light)">{{ $siteSettings->address_line_2 }}</div>
         </div>
 
         <!-- Working Hours -->
@@ -77,7 +77,7 @@
             </svg>
           </div>
           <h3 style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">Working Hours</h3>
-          <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px">{{ config('hospital.hours') }}</div>
+          <div style="font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px">{{ $siteSettings->working_hours }}</div>
           <div style="font-size:13px;color:var(--text-light)">Monday through Sunday</div>
         </div>
       </div>
@@ -153,7 +153,7 @@
           <!-- Map -->
           <div style="border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-md); margin-bottom: 24px; border: 1px solid var(--border-light);">
             <iframe
-              src="{{ config('hospital.map_embed_url') }}"
+              src="{{ $siteSettings->map_embed_url }}"
               width="100%"
               height="350"
               style="border: 0; display: block;"
@@ -173,7 +173,7 @@
               <div style="font-size: 13px; font-weight: 600; opacity: 0.9; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.05em;">
                 Open 24 hours
               </div>
-              <a href="tel:{{ config('hospital.phone.href') }}" style="display:block;font-size:24px;font-weight:800;margin-bottom:4px;color:white;text-decoration:none">{{ config('hospital.phone.display') }}</a>
+              <a href="tel:{{ $siteSettings->phone_href }}" style="display:block;font-size:24px;font-weight:800;margin-bottom:4px;color:white;text-decoration:none">{{ $siteSettings->phone_display }}</a>
               <div style="font-size: 14px; opacity: 0.85;">
                 The hospital is open 24 hours. Call the main hospital number for immediate guidance.
               </div>
@@ -184,9 +184,9 @@
           <div style="background: white; border-radius: var(--radius-xl); padding: 32px; border: 1px solid var(--border-light); margin-top: 24px;">
             <h4 style="font-size:16px;font-weight:700;margin-bottom:16px">Plan your visit</h4>
             <div style="display:flex;gap:12px;flex-wrap:wrap">
-              <a href="{{ config('hospital.directions_url') }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Get Directions</a>
-              <a href="{{ config('hospital.outside_view_url') }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">See Outside</a>
-              <a href="{{ config('hospital.maps_url') }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Google Reviews</a>
+              <a href="{{ $siteSettings->directions_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Get Directions</a>
+              <a href="{{ $siteSettings->outside_view_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">See Outside</a>
+              <a href="{{ $siteSettings->maps_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Google Reviews</a>
             </div>
           </div>
         </div>
@@ -285,8 +285,8 @@
         Interested in joining our team? Call the hospital to ask about current opportunities and the appropriate application contact.
       </p>
       <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-        <a href="tel:{{ config('hospital.phone.href') }}" class="btn btn-primary btn-lg" style="background: white; color: var(--primary); border-color: white;">
-          Call {{ config('hospital.phone.display') }}
+        <a href="tel:{{ $siteSettings->phone_href }}" class="btn btn-primary btn-lg" style="background: white; color: var(--primary); border-color: white;">
+          Call {{ $siteSettings->phone_display }}
         </a>
         <a href="{{ url('/') }}" class="btn btn-white btn-lg">
           Learn More

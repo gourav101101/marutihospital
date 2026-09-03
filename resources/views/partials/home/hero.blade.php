@@ -30,7 +30,7 @@
       <div class="animate-fade-in-up" style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 18px; background: rgba(255,255,255,0.1); border-radius: var(--radius-full); border: 1px solid rgba(255,255,255,0.15); margin-bottom: 24px; backdrop-filter: blur(4px);">
         <span class="emergency-dot" style="width: 8px; height: 8px; background: var(--accent);"></span>
         <span style="color: rgba(255,255,255,0.95); font-size: 13px; font-weight: 600; letter-spacing: 0.02em;">
-          {{ config('hospital.hours') }} · Raisen Road, Bhopal
+          {{ $siteSettings->working_hours }} · Raisen Road, Bhopal
         </span>
       </div>
 
@@ -57,7 +57,7 @@
           </svg>
           Book Appointment
         </a>
-        <a href="tel:{{ config('hospital.phone.href') }}" class="btn btn-outline btn-lg" style="color: white; border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.05);" onmouseover="this.style.background='rgba(255,255,255,0.1)'; this.style.borderColor='rgba(255,255,255,0.5)'" onmouseout="this.style.background='rgba(255,255,255,0.05)'; this.style.borderColor='rgba(255,255,255,0.3)'">
+        <a href="tel:{{ $siteSettings->phone_href }}" class="btn btn-outline btn-lg" style="color: white; border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.05);" onmouseover="this.style.background='rgba(255,255,255,0.1)'; this.style.borderColor='rgba(255,255,255,0.5)'" onmouseout="this.style.background='rgba(255,255,255,0.05)'; this.style.borderColor='rgba(255,255,255,0.3)'">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
           </svg>
@@ -68,11 +68,11 @@
       <!-- Trust indicators -->
       <div class="hero-stats animate-fade-in-up delay-500" style="display: flex; gap: 32px; margin-top: 48px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.15);">
         <div style="text-align: center;">
-          <div style="font-size: 28px; font-weight: 800; color: var(--accent); line-height: 1;">{{ config('hospital.rating') }} ★</div>
+          <div style="font-size: 28px; font-weight: 800; color: var(--accent); line-height: 1;">{{ $siteSettings->google_rating }} ★</div>
           <div style="font-size: 12px; color: rgba(255,255,255,0.7); margin-top: 4px; font-weight: 500;">Google rating</div>
         </div>
         <div style="text-align: center;">
-          <div style="font-size: 28px; font-weight: 800; color: var(--accent); line-height: 1;">{{ config('hospital.review_count') }}</div>
+          <div style="font-size: 28px; font-weight: 800; color: var(--accent); line-height: 1;">{{ $siteSettings->google_review_count }}</div>
           <div style="font-size: 12px; color: rgba(255,255,255,0.7); margin-top: 4px; font-weight: 500;">Google reviews</div>
         </div>
         <div style="text-align: center;">

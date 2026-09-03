@@ -18,7 +18,7 @@
            <a href="{{ route('appointment') }}" class="btn btn-white btn-lg" style="color: var(--primary);">
               Book Appointment
            </a>
-           <a href="tel:{{ config('hospital.phone.href') }}" class="btn btn-outline btn-lg" style="color: white; border-color: rgba(255,255,255,0.4);" onmouseover="this.style.background='rgba(255,255,255,0.1)'; this.style.borderColor='white'" onmouseout="this.style.background='transparent'; this.style.borderColor='rgba(255,255,255,0.4)'">
+           <a href="tel:{{ $siteSettings->phone_href }}" class="btn btn-outline btn-lg" style="color: white; border-color: rgba(255,255,255,0.4);" onmouseover="this.style.background='rgba(255,255,255,0.1)'; this.style.borderColor='white'" onmouseout="this.style.background='transparent'; this.style.borderColor='rgba(255,255,255,0.4)'">
               Call Helpline
            </a>
        </div>

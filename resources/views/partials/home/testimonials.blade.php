@@ -18,7 +18,7 @@
       @endforelse
     </div>
     @if(!request()->routeIs('patient-stories'))
-      <div style="text-align:center;margin-top:34px"><a href="{{ config('hospital.maps_url') }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="border-color:rgba(255,255,255,.55);color:#fff">View all Google reviews</a></div>
+      <div style="text-align:center;margin-top:34px"><a href="{{ $siteSettings->maps_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="border-color:rgba(255,255,255,.55);color:#fff">View all Google reviews</a></div>
     @endif
   </div>
   <style>@media(max-width:968px){.testimonials-grid{grid-template-columns:1fr!important}}</style>

@@ -47,7 +47,7 @@
 
           <div style="display: flex; gap: 16px;">
             <a href="{{ route('appointment') }}" class="btn btn-primary" style="padding: 14px 28px; font-size: 15px;">Book Appointment</a>
-            <a href="tel:{{ config('hospital.phone.href') }}" class="btn btn-outline" style="padding: 14px 28px; font-size: 15px;">Call Hospital</a>
+            <a href="tel:{{ $siteSettings->phone_href }}" class="btn btn-outline" style="padding: 14px 28px; font-size: 15px;">Call Hospital</a>
           </div>
         </div>
 

@@ -149,7 +149,7 @@
             </p>
             <div style="background: var(--bg-light); border-radius: var(--radius-lg); padding: 20px; max-width: 400px; margin: 0 auto 24px; text-align: left; font-size: 14px; color: var(--text);">
               <div style="font-weight: 700; margin-bottom: 8px; color: var(--primary);">Need immediate help?</div>
-              <div>Call the hospital: <strong>{{ config('hospital.phone.display') }}</strong></div>
+              <div>Call the hospital: <strong>{{ $siteSettings->phone_display }}</strong></div>
             </div>
             <button onclick="document.getElementById('appointment-success').style.display = 'none'; document.getElementById('appointment-form').style.display = 'flex';" class="btn btn-outline">
               Book Another Appointment
@@ -171,7 +171,7 @@
               </div>
             </div>
             <div style="font-size: 28px; font-weight: 900; color: var(--accent); margin-bottom: 12px;">
-              {{ config('hospital.phone.display') }}
+              {{ $siteSettings->phone_display }}
             </div>
             <p style="font-size: 14px; opacity: 0.85; margin: 0; line-height: 1.5;">
               The hospital is open 24 hours. Call the main number for immediate guidance.

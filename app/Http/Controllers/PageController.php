@@ -109,8 +109,20 @@ class PageController extends Controller
         }
 
         Appointment::create($validated);
+        
+        $settings = \App\Models\SiteSetting::first();
+        $whatsappNumber = $settings ? $settings->whatsapp_number : '919981913232';
 
-        return redirect()->route('appointment')->with('appointment_success', true);
+        $message = "Hello Maruti Hospital,\n\nI have submitted a new Appointment Request:\n\n";
+        $message .= "Name: " . $validated['patient_name'] . "\n";
+        $message .= "Phone: " . $validated['phone'] . "\n";
+        $message .= "Department: " . $validated['department'] . "\n";
+        $message .= "Date: " . $validated['preferred_date'] . "\n";
+        $message .= "Time: " . $validated['time_slot'];
+        
+        $whatsappUrl = "https://wa.me/{$whatsappNumber}?text=" . urlencode($message);
+
+        return redirect()->away($whatsappUrl);
     }
 
     public function storeContactMessage(Request $request)
@@ -125,7 +137,20 @@ class PageController extends Controller
 
         ContactMessage::create($validated);
 
-        return redirect()->route('contact')->with('contact_success', true);
+        $settings = \App\Models\SiteSetting::first();
+        $whatsappNumber = $settings ? $settings->whatsapp_number : '919981913232';
+
+        $message = "Hello Maruti Hospital,\n\nI have submitted a new Enquiry:\n\n";
+        $message .= "Name: " . $validated['name'] . "\n";
+        if (!empty($validated['phone'])) {
+            $message .= "Phone: " . $validated['phone'] . "\n";
+        }
+        $message .= "Subject: " . $validated['subject'] . "\n";
+        $message .= "Message: " . $validated['message'];
+        
+        $whatsappUrl = "https://wa.me/{$whatsappNumber}?text=" . urlencode($message);
+
+        return redirect()->away($whatsappUrl);
     }
 
     public function healthLibrary()
