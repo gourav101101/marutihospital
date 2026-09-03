@@ -1025,46 +1025,113 @@ textarea.form-input {
   }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 968px) {
+  #main-header {
+    height: 72px;
+    --header-height: 72px;
+  }
+
   .hospital-brand {
     min-width: 0;
-    gap: 9px;
+    gap: 8px;
   }
 
   .hospital-brand__logo {
-    width: 66px;
-    height: 66px;
-    flex-basis: 66px;
+    width: 50px;
+    height: 50px;
+    flex: 0 0 50px;
   }
 
   .hospital-brand__wordmark .brand-title {
-    font-size: 19px;
+    font-size: 18px;
     letter-spacing: 0.14em;
     text-indent: 0.14em;
   }
 
   .hospital-brand__wordmark .brand-subtitle {
-    font-size: 8px;
+    font-size: 7.5px;
     letter-spacing: 0.03em;
+    margin-top: 2px;
     padding-bottom: 2px;
+    border-bottom-width: 1.5px;
   }
 
   .hospital-brand__nabh-logo {
-    width: 52px;
-    height: 52px;
-    flex-basis: 52px;
+    width: 46px;
+    height: 46px;
+    flex: 0 0 46px;
     margin-left: 0;
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 560px) {
+  #main-header {
+    height: 66px;
+    --header-height: 66px;
+  }
+
+  .hospital-brand {
+    gap: 6px;
+  }
+
+  .hospital-brand__logo {
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+  }
+
+  .hospital-brand__wordmark .brand-title {
+    font-size: 15px;
+    letter-spacing: 0.12em;
+    text-indent: 0.12em;
+  }
+
+  .hospital-brand__wordmark .brand-subtitle {
+    font-size: 6.5px;
+    letter-spacing: 0.02em;
+    padding-bottom: 1.5px;
+  }
+
   .hospital-brand__nabh-logo {
-    display: none;
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
   }
 }
 
-@media (max-width: 390px) {
-  .hospital-brand__wordmark {
+@media (max-width: 420px) {
+  .hospital-brand {
+    gap: 5px;
+  }
+
+  .hospital-brand__logo {
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+  }
+
+  .hospital-brand__wordmark .brand-title {
+    font-size: 13px;
+    letter-spacing: 0.10em;
+    text-indent: 0.10em;
+  }
+
+  .hospital-brand__wordmark .brand-subtitle {
+    font-size: 6px;
+    letter-spacing: 0.01em;
+    padding-bottom: 1px;
+    border-bottom-width: 1px;
+  }
+
+  .hospital-brand__nabh-logo {
+    width: 36px;
+    height: 36px;
+    flex: 0 0 36px;
+  }
+}
+
+@media (max-width: 360px) {
+  .hospital-brand__nabh-logo {
     display: none;
   }
 }

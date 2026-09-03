@@ -1,6 +1,6 @@
 @extends('layouts.app')
-
 @section('title', 'Book an Appointment - Maruti Hospital')
+@section('meta_description', 'Schedule your doctor consultation or health checkup online with Maruti Multispeciality Hospital Bhopal.')
 
 @section('content')
   <!-- Hero Banner -->

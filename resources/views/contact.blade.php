@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Contact Us - Maruti Hospital')
+@section('meta_description', 'Get in touch with Maruti Hospital Bhopal. Call our 24/7 helpline, find directions to our Raisen Road location, or send us a message online.')
 
 @section('content')
   <!-- Hero Banner -->

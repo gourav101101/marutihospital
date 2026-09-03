@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('meta_description', 'Maruti Multispeciality Hospital in Bhopal offers 24/7 emergency care, advanced diagnostics, and specialist consultations. NABH accredited.')
 
 @section('content')
     @include('partials.home.hero')
@@ -8,6 +9,7 @@
     @include('partials.home.why-choose-us')
     @include('partials.home.doctors')
     @include('partials.home.services')
+    @include('partials.home.facilities')
     @include('partials.home.testimonials')
     @include('partials.home.blog')
     @include('partials.home.appointment-cta')

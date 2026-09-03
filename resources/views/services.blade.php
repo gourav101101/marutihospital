@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Services - Maruti Hospital')
+@section('meta_description', 'Explore the comprehensive patient services at Maruti Hospital including 24/7 emergency, ICU, pharmacy, advanced diagnostics, and homecare.')
 
 @section('content')
   <!-- Hero Banner -->
@@ -547,19 +548,9 @@
     </style>
   </section>
 
+  <!-- ── FAQ Section ── -->
+  @include('partials.home.faq')
+
   <!-- ── CTA ── -->
-  <section style="padding: 80px 0; background: var(--dark); color: white; text-align: center;">
-    <div class="container">
-      <h2 style="font-size: clamp(28px, 4vw, 40px); font-weight: 800; color: white; margin-bottom: 16px;">
-        Need a <span style="color: var(--secondary);">Service?</span>
-      </h2>
-      <p style="font-size: 17px; color: rgba(255,255,255,0.7); max-width: 500px; margin: 0 auto 32px; line-height: 1.7;">
-        Book an appointment or call us to learn more about our patient services.
-      </p>
-      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-        <a href="{{ url('/appointment') }}" class="btn btn-secondary btn-lg">Book Appointment</a>
-        <a href="tel:{{ config('hospital.phone.href') }}" class="btn btn-white btn-lg">Call Now</a>
-      </div>
-    </div>
-  </section>
+  @include('partials.home.appointment-cta')
 @endsection

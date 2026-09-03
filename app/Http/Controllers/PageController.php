@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Appointment;
 use App\Models\Blog;
+use App\Models\Brochure;
 use App\Models\ContactMessage;
 use App\Models\Department;
 use App\Models\Doctor;
+use App\Models\PatientFeedback;
+use App\Models\Gallery;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -33,6 +36,12 @@ class PageController extends Controller
         return view('doctors', ['doctors' => Doctor::active()->ordered()->get()]);
     }
 
+    public function doctorProfile(Doctor $doctor)
+    {
+        abort_if(!$doctor->is_active, 404);
+        return view('doctor-profile', compact('doctor'));
+    }
+
     public function patientStories()
     {
         return view('patient-stories', ['testimonials' => Testimonial::active()->ordered()->paginate(12)]);
@@ -41,6 +50,16 @@ class PageController extends Controller
     public function services()
     {
         return view('services');
+    }
+
+    public function gallery()
+    {
+        return view('gallery', ['images' => Gallery::active()->ordered()->get()]);
+    }
+
+    public function downloads()
+    {
+        return view('downloads', ['brochures' => Brochure::latest()->get()]);
     }
 
     public function contact()
@@ -148,13 +167,30 @@ class PageController extends Controller
     {
         return view('legal', [
             'title' => 'Terms of Service',
-            'heading' => 'Website terms of use',
-            'intro' => 'By using this website, you agree to use the information responsibly and contact our team for clinical advice or emergencies.',
+            'heading' => 'Hospital Terms of Service',
+            'intro' => 'By accessing our services, you agree to these terms.',
             'sections' => [
-                ['Medical information', 'Website content is for general information only. It does not replace advice, diagnosis, or treatment from a qualified healthcare professional.'],
-                ['Appointments', 'An appointment request is not confirmed until a Maruti Hospital representative contacts you with a confirmed time.'],
-                ['Emergency care', 'For urgent medical situations, call the emergency helpline or seek immediate medical care.'],
-            ],
+                ['Medical Disclaimer', 'The information provided on this website is for general informational purposes only and does not constitute medical advice.'],
+                ['Service Availability', 'While we strive to provide 24/7 care, specific specialists and non-emergency services operate during scheduled hours.'],
+                ['Patient Responsibilities', 'Patients are expected to provide accurate medical history and follow the prescribed treatment plans.'],
+                ['Modifications', 'Maruti Multispeciality Hospital reserves the right to update these terms at any time without prior notice.']
+            ]
         ]);
+    }
+
+    public function storeFeedback(Request $request)
+    {
+        $validated = $request->validate([
+            'patient_name' => 'required|string|max:255',
+            'department' => 'required|string|max:255',
+            'rating' => 'required|integer|min:1|max:5',
+            'feedback' => 'required|string|max:1000',
+        ]);
+
+        $validated['status'] = 'pending';
+
+        PatientFeedback::create($validated);
+
+        return back()->with('success', 'Thank you for your feedback! It helps us improve our services.');
     }
 }

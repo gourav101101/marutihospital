@@ -231,6 +231,13 @@
           </a>
         </li>
 
+        <!-- Gallery -->
+        <li class="nav-item">
+          <a href="{{ route('gallery') }}" class="nav-link {{ request()->routeIs('gallery') ? 'active' : '' }}">
+            Gallery
+          </a>
+        </li>
+
         <!-- Contact -->
         <li class="nav-item">
           <a href="{{ route('contact') }}" class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}">
@@ -312,6 +319,9 @@
       </li>
       <li>
         <a href="{{ route('doctors') }}" style="display: block; padding: 16px 0; font-size: 18px; font-weight: 600; color: var(--text); text-decoration: none; border-bottom: 1px solid var(--border-light);">Doctors</a>
+      </li>
+      <li>
+        <a href="{{ route('gallery') }}" style="display: block; padding: 16px 0; font-size: 18px; font-weight: 600; color: var(--text); text-decoration: none; border-bottom: 1px solid var(--border-light);">Gallery</a>
       </li>
       <li>
         <a href="{{ route('contact') }}" style="display: block; padding: 16px 0; font-size: 18px; font-weight: 600; color: var(--text); text-decoration: none; border-bottom: 1px solid var(--border-light);">Contact</a>

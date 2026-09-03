@@ -8,7 +8,7 @@
     </div>
     <div class="doctors-grid">
       @forelse($showAllDoctors ? $doctors : $doctors->take(4) as $doctor)
-        <article class="doctor-card">
+        <a href="{{ route('doctor.profile', $doctor) }}" class="doctor-card" style="text-decoration: none; color: inherit; display: block;">
           <div class="doctor-photo" style="background-image:url('{{ $doctor->photo ? asset($doctor->photo) : asset('images/doctors-team.png') }}')"></div>
           <div class="doctor-card__body">
             <p class="doctor-department">{{ $doctor->department }}</p>
@@ -16,7 +16,7 @@
             <p class="doctor-designation">{{ $doctor->designation }}</p>
             @if($doctor->experience)<span class="doctor-experience">{{ $doctor->experience }} experience</span>@endif
           </div>
-        </article>
+        </a>
       @empty
         <p class="doctors-empty">Doctor profiles will be available soon.</p>
       @endforelse

@@ -1,6 +1,6 @@
 <section class="home-quick-access" style="position: relative; z-index: 20; margin-top: 48px; margin-bottom: 72px;">
   <div class="container">
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 900px; margin: 0 auto;" class="quick-access-grid">
+    <div class="quick-access-grid">
       <!-- Book Appointment -->
       <a href="{{ route('appointment') }}" style="display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 24px 16px; background: white; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); text-decoration: none; transition: var(--transition); border: 1px solid var(--border-light); border-left: 3px solid var(--primary); cursor: pointer;"
          onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='var(--shadow-xl)'; this.style.borderColor='var(--primary-200)';"
@@ -55,4 +55,13 @@
       </a>
     </div>
   </div>
+  <style>
+    .quick-access-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 900px; margin: 0 auto; }
+    @media (max-width: 968px) {
+      .quick-access-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .quick-access-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </section>

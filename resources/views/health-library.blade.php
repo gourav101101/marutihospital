@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Health Library - Maruti Hospital')
+@section('meta_description', 'Read health articles, medical guidance, and wellness tips written by the expert doctors at Maruti Multispeciality Hospital.')
 
 @section('content')
   <section class="page-hero"><div class="container"><div class="breadcrumb"><a href="{{ route('home') }}">Home</a><span class="separator">/</span><span style="color:white">Health Library</span></div><h1>Health Library</h1><p>Practical health guidance and trusted advice from the Maruti Hospital team.</p></div></section>
